@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import About from "./pages/AboutPage/About";
+import Review from "./pages/ReviewPage/Review";
 
 import { Outlet } from "react-router-dom";
 
