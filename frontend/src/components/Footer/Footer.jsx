@@ -87,7 +87,7 @@ function Footer() {
             {/* Bottom bar */}
             <div className="footer-bottom">
                 <p className="footer-copy">
-                    ©2024 <strong>ED-TECH</strong>. All Rights Reserved.
+                    ©2026 <strong>ED-TECH</strong>. All Rights Reserved.
                 </p>
                 <p className="footer-credit">
                     Designed by Team <strong>EdTech</strong>
