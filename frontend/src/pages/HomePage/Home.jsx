@@ -1,189 +1,183 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Home.css';
 
 const Home = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const programs = [
-    {
-      id: 1,
-      icon: "💻",
-      title: "Web Development",
-      description: "Master full-stack development with modern frameworks like React, Node.js, and MongoDB. Build real-world applications.",
-      duration: "8 Weeks",
-      level: "Beginner to Advanced"
-    },
-    {
-      id: 2,
-      icon: "📊",
-      title: "Data Science",
-      description: "Learn data analysis, machine learning, and AI. Work with Python, TensorFlow, and industry-standard tools.",
-      duration: "10 Weeks",
-      level: "Intermediate"
-    },
-    {
-      id: 3,
-      icon: "🎨",
-      title: "UI/UX Design",
-      description: "Create stunning user interfaces and experiences. Master Figma, design systems, and user research methodologies.",
-      duration: "6 Weeks",
-      level: "Beginner"
-    },
-    {
-      id: 4,
-      icon: "📱",
-      title: "Mobile Development",
-      description: "Build native and cross-platform mobile apps using React Native and Flutter. Deploy to App Store and Play Store.",
-      duration: "8 Weeks",
-      level: "Intermediate"
-    },
-    {
-      id: 5,
-      icon: "🔒",
-      title: "Cybersecurity",
-      description: "Learn ethical hacking, network security, and penetration testing. Protect systems from cyber threats.",
-      duration: "12 Weeks",
-      level: "Advanced"
-    },
-    {
-      id: 6,
-      icon: "☁️",
-      title: "Cloud Computing",
-      description: "Master AWS, Azure, and Google Cloud. Learn DevOps, containerization with Docker and Kubernetes.",
-      duration: "10 Weeks",
-      level: "Intermediate"
-    }
+    { icon: "💻", title: "Full Stack Development", description: "Master React, Node.js, MongoDB. Build production-grade apps from scratch with real client projects.", duration: "8 Weeks", level: "All Levels", tag: "Most Popular" },
+    { icon: "📊", title: "Data Science & AI", description: "Python, TensorFlow, ML algorithms. Go from raw data to intelligent systems that solve real problems.", duration: "10 Weeks", level: "Intermediate", tag: "Trending" },
+    { icon: "🎨", title: "UI/UX Design", description: "Figma, design systems, user research. Create interfaces people love using every day.", duration: "6 Weeks", level: "Beginner", tag: "" },
+    { icon: "📱", title: "Mobile Development", description: "React Native & Flutter. Ship to both App Store and Play Store with a single codebase.", duration: "8 Weeks", level: "Intermediate", tag: "" },
+    { icon: "🔒", title: "Cybersecurity", description: "Ethical hacking, penetration testing, network defence. Become the expert companies need most.", duration: "12 Weeks", level: "Advanced", tag: "High Demand" },
+    { icon: "☁️", title: "Cloud & DevOps", description: "AWS, Azure, Docker, Kubernetes. Build scalable infrastructure that powers modern software.", duration: "10 Weeks", level: "Intermediate", tag: "" },
   ];
 
-  const features = [
-    {
-      icon: "🎓",
-      title: "Expert Mentorship",
-      description: "Learn from industry professionals with 10+ years of experience"
-    },
-    {
-      icon: "💼",
-      title: "Real Projects",
-      description: "Work on actual client projects and build your portfolio"
-    },
-    {
-      icon: "📜",
-      title: "Certification",
-      description: "Get industry-recognized certificates upon completion"
-    },
-    {
-      icon: "🤝",
-      title: "Placement Support",
-      description: "95% placement rate with top companies in the industry"
-    }
+  const steps = [
+    { number: "01", title: "Apply Online", description: "Fill out a short application. We review every submission personally within 24 hours." },
+    { number: "02", title: "Get Matched", description: "We pair you with a mentor and program that fits your goals and current skill level." },
+    { number: "03", title: "Learn & Build", description: "Work on real projects with expert guidance, live sessions, and peer collaboration." },
+    { number: "04", title: "Get Placed", description: "Leverage our network of 100+ hiring partners to land your first or next tech role." },
   ];
 
   return (
     <div className="home-container">
-      {/* Hero Section */}
+
+      {/* Hero */}
       <section className="home-hero">
-        <div className="hero-content">
-          <h1 className="hero-title">Transform Your Career with ED-tech</h1>
+        <div className="hero-bg-grid" />
+        <div className="hero-inner">
+          <div className="hero-badge">🚀 Now enrolling — Batch 2026</div>
+          <h1 className="hero-title">
+            Build the skills<br />
+            <span className="hero-title-accent">companies hire for.</span>
+          </h1>
           <p className="hero-subtitle">
-            Join thousands of students who landed their dream jobs through our 
-            industry-focused internship programs. Learn from experts, work on real projects, 
-            and accelerate your career growth.
+            CodSoft turns ambitious learners into job-ready professionals through
+            hands-on internship programs built around real work, not theory.
           </p>
-          <div className="hero-buttons">
-            <button className="btn-primary">Get Started</button>
-            <button className="btn-secondary">View Programs</button>
+          <div className="hero-cta">
+            <button className="btn-primary">Start Your Journey</button>
+            <button className="btn-ghost">Browse Programs ↓</button>
+          </div>
+          <div className="hero-stats">
+            <div className="hero-stat">
+              <strong>5,000+</strong>
+              <span>Students placed</span>
+            </div>
+            <div className="hero-stat-divider" />
+            <div className="hero-stat">
+              <strong>95%</strong>
+              <span>Placement rate</span>
+            </div>
+            <div className="hero-stat-divider" />
+            <div className="hero-stat">
+              <strong>4.9 ★</strong>
+              <span>Average rating</span>
+            </div>
           </div>
         </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="features-section">
-        <h2 className="section-title">Why Choose Edtech?</h2>
-        <div className="features-grid">
-          {features.map((feature, index) => (
-            <div key={index} className="feature-card">
-              <div className="feature-icon">{feature.icon}</div>
-              <h3 className="feature-title">{feature.title}</h3>
-              <p className="feature-description">{feature.description}</p>
+        <div className="hero-visual">
+          <div className="floating-card card-1">
+            <span className="fc-icon">🎓</span>
+            <div>
+              <p className="fc-title">Offer Letter</p>
+              <p className="fc-sub">Priya S. — TCS</p>
             </div>
-          ))}
+          </div>
+          <div className="floating-card card-2">
+            <span className="fc-icon">📈</span>
+            <div>
+              <p className="fc-title">Skill growth</p>
+              <p className="fc-sub">+340% this month</p>
+            </div>
+          </div>
+          <div className="floating-card card-3">
+            <span className="fc-icon">✅</span>
+            <div>
+              <p className="fc-title">Project shipped</p>
+              <p className="fc-sub">Full Stack App</p>
+            </div>
+          </div>
+          <div className="hero-orb orb-1" />
+          <div className="hero-orb orb-2" />
         </div>
       </section>
 
-      {/* Programs Section */}
-      <section className="programs-section">
-        <h2 className="section-title">Our Programs</h2>
-        <p className="section-subtitle">
-          Choose from our wide range of internship programs designed to match industry demands
-        </p>
+      {/* Marquee */}
+      <div className="marquee-section">
+        <p className="marquee-label">Our students work at</p>
+        <div className="marquee-wrap">
+          <div className="marquee-track">
+            {['TCS', 'Infosys', 'Wipro', 'HCL', 'Cognizant', 'Accenture', 'IBM', 'Oracle', 'SAP', 'Capgemini',
+              'TCS', 'Infosys', 'Wipro', 'HCL', 'Cognizant', 'Accenture', 'IBM', 'Oracle', 'SAP', 'Capgemini'].map((c, i) => (
+              <span key={i} className="marquee-item">{c}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Programs */}
+      <section className="programs-section" id="programs">
+        <div className="section-header">
+          <p className="section-eyebrow">PROGRAMS</p>
+          <h2 className="section-title">Find your path.</h2>
+          <p className="section-subtitle">
+            Six intensive tracks designed with industry leaders to match what employers actually need.
+          </p>
+        </div>
         <div className="programs-grid">
-          {programs.map((program) => (
-            <div key={program.id} className="program-card">
-              <div className="program-icon">{program.icon}</div>
-              <h3 className="program-title">{program.title}</h3>
-              <p className="program-description">{program.description}</p>
-              <div className="program-meta">
-                <span className="program-duration">⏱ {program.duration}</span>
-                <span className="program-level">📈 {program.level}</span>
+          {programs.map((p, i) => (
+            <div key={i} className="program-card">
+              {p.tag && <div className="program-tag">{p.tag}</div>}
+              <div className="program-icon">{p.icon}</div>
+              <h3 className="program-name">{p.title}</h3>
+              <p className="program-desc">{p.description}</p>
+              <div className="program-footer">
+                <div className="program-badges">
+                  <span className="badge">⏱ {p.duration}</span>
+                  <span className="badge">📈 {p.level}</span>
+                </div>
+                <button className="program-cta">Learn more →</button>
               </div>
-              <button className="program-btn">Learn More</button>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="stats-section">
-        <div className="stats-grid">
-          <div className="stat-item">
-            <h3 className="stat-number">5000+</h3>
-            <p className="stat-label">Students Trained</p>
+      {/* How it works */}
+      <section className="steps-section">
+        <div className="steps-inner">
+          <div className="section-header left-align">
+            <p className="section-eyebrow">HOW IT WORKS</p>
+            <h2 className="section-title">Four steps to your<br />dream role.</h2>
           </div>
-          <div className="stat-item">
-            <h3 className="stat-number">95%</h3>
-            <p className="stat-label">Placement Rate</p>
-          </div>
-          <div className="stat-item">
-            <h3 className="stat-number">100+</h3>
-            <p className="stat-label">Hiring Partners</p>
-          </div>
-          <div className="stat-item">
-            <h3 className="stat-number">4.9★</h3>
-            <p className="stat-label">Average Rating</p>
+          <div className="steps-grid">
+            {steps.map((s, i) => (
+              <div key={i} className="step-card">
+                <div className="step-number">{s.number}</div>
+                <h3 className="step-title">{s.title}</h3>
+                <p className="step-desc">{s.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonial Section */}
+      {/* Testimonial */}
       <section className="testimonial-section">
-        <h2 className="section-title">What Our Students Say</h2>
-        <div className="testimonial-container">
-          <div className="testimonial-card">
-            <div className="quote-icon">"</div>
-            <p className="testimonial-text">
-              Edtech's internship program changed my life. The hands-on projects and 
-              expert mentorship helped me land a job at a top tech company within weeks 
-              of completing the program!
-            </p>
-            <div className="testimonial-author">
-              <div className="author-avatar">👨‍💻</div>
-              <div className="author-info">
-                <h4 className="author-name">Rajesh Kumar</h4>
-                <p className="author-role">Full Stack Developer at TCS</p>
-              </div>
+        <div className="testimonial-inner">
+          <div className="testimonial-quote">"</div>
+          <p className="testimonial-text">
+            I came in with zero professional experience and left with a portfolio,
+            a certificate, and an offer from Infosys. The mentorship at CodSoft
+            is genuinely unlike anything else I've found online.
+          </p>
+          <div className="testimonial-author">
+            <div className="author-avatar">👩‍💻</div>
+            <div>
+              <p className="author-name">Priya Sharma</p>
+              <p className="author-role">Full Stack Developer · Infosys</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Banner */}
       <section className="cta-section">
-        <div className="cta-content">
-          <h2 className="cta-title">Ready to Start Your Journey?</h2>
-          <p className="cta-text">
-            Join our next batch and transform your career with practical skills and industry experience
-          </p>
-          <button className="cta-button">Apply for Internship</button>
+        <div className="cta-inner">
+          <h2 className="cta-title">Your next opportunity<br />starts here.</h2>
+          <p className="cta-sub">Applications are open. Limited seats per batch.</p>
+          <button className="btn-primary btn-large">Apply for Free →</button>
         </div>
       </section>
+
     </div>
   );
 };

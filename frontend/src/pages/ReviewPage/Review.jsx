@@ -2,17 +2,16 @@ import React, { useState, useEffect } from 'react';
 import './Review.css';
 
 const Review = () => {
-  const [currentReview, setCurrentReview] = useState(0);
+  const [current, setCurrent] = useState(0);
 
-  // Student reviews data
   const reviews = [
     {
       id: 1,
       name: "Priya Sharma",
       course: "Full Stack Development",
       rating: 5,
-      image: "👩‍💻",
-      review: "The internship program completely transformed my coding skills. The hands-on projects and mentorship were invaluable. I landed my dream job within a month of completing the program!",
+      avatar: "👩‍💻",
+      text: "The internship program completely transformed my coding skills. The hands-on projects and mentorship were invaluable. I landed my dream job within a month!",
       date: "January 2026"
     },
     {
@@ -20,8 +19,8 @@ const Review = () => {
       name: "Rahul Patel",
       course: "Data Science & ML",
       rating: 5,
-      image: "👨‍💼",
-      review: "Best learning experience ever! The real-world projects and industry experts made all the difference. The support team was always available to help with any doubts.",
+      avatar: "👨‍💼",
+      text: "Best learning experience ever! Real-world projects and industry experts made all the difference. The support team was always available to help.",
       date: "December 2025"
     },
     {
@@ -29,8 +28,8 @@ const Review = () => {
       name: "Ananya Kumar",
       course: "UI/UX Design",
       rating: 5,
-      image: "👩‍🎨",
-      review: "Amazing internship program! I learned so much about design thinking and user research. The portfolio I built here helped me get multiple job offers. Highly recommended!",
+      avatar: "👩‍🎨",
+      text: "Amazing program! I learned so much about design thinking and user research. The portfolio I built here helped me get multiple job offers.",
       date: "November 2025"
     },
     {
@@ -38,8 +37,8 @@ const Review = () => {
       name: "Arjun Singh",
       course: "Mobile App Development",
       rating: 5,
-      image: "👨‍💻",
-      review: "The practical approach to learning made complex concepts easy to understand. The mentors were experienced professionals who genuinely cared about our growth and success.",
+      avatar: "👨‍💻",
+      text: "The practical approach made complex concepts easy to understand. Mentors genuinely cared about our growth and success throughout the program.",
       date: "October 2025"
     },
     {
@@ -47,130 +46,131 @@ const Review = () => {
       name: "Sneha Reddy",
       course: "Digital Marketing",
       rating: 5,
-      image: "👩‍💼",
-      review: "This internship exceeded all my expectations! The live campaigns and analytics training gave me the confidence to pursue digital marketing as my career. Thank you for this opportunity!",
+      avatar: "👩‍💼",
+      text: "This internship exceeded all my expectations! The live campaigns and analytics training gave me the confidence to pursue digital marketing as my career.",
       date: "September 2025"
-    }
+    },
+    // ── Add more reviews below this line ──────────────
+    // {
+    //   id: 6,
+    //   name: "Student Name",
+    //   course: "Course Name",
+    //   rating: 5,
+    //   avatar: "👨‍🎓",
+    //   text: "Your review text here.",
+    //   date: "Month Year"
+    // },
   ];
 
-  // Auto-slide effect
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentReview((prev) => (prev + 1) % reviews.length);
-    }, 5000); // Change slide every 5 seconds
-
+      setCurrent(prev => (prev + 1) % reviews.length);
+    }, 4000);
     return () => clearInterval(timer);
   }, [reviews.length]);
 
-  const nextReview = () => {
-    setCurrentReview((prev) => (prev + 1) % reviews.length);
-  };
-
-  const prevReview = () => {
-    setCurrentReview((prev) => (prev - 1 + reviews.length) % reviews.length);
-  };
-
-  const goToReview = (index) => {
-    setCurrentReview(index);
-  };
+  const prev = () => setCurrent(p => (p - 1 + reviews.length) % reviews.length);
+  const next = () => setCurrent(p => (p + 1) % reviews.length);
 
   return (
-    <div className="review-container">
-      {/* Hero Section */}
-      <section className="review-hero">
-        <h1 className="review-title">Student Reviews</h1>
-        <p className="review-subtitle">
-          Hear what our successful interns have to say about their learning journey
-        </p>
+    <div className="review-page">
+
+      {/* Hero */}
+      <section className="rv-hero">
+        <p className="rv-eyebrow">WHAT STUDENTS SAY</p>
+        <h1 className="rv-title">Real results.<br /><span>Real stories.</span></h1>
+        <p className="rv-sub">Hear directly from students who transformed their careers with EdTech.</p>
       </section>
 
-      {/* Reviews Slider Section */}
-      <section className="reviews-section">
-        <div className="reviews-slider-container">
-          <h2 className="section-heading">Success Stories</h2>
-          
-          <div className="slider-wrapper">
-            {/* Navigation Buttons */}
-            <button className="slider-btn prev-btn" onClick={prevReview} aria-label="Previous review">
-              ‹
-            </button>
+      {/* Slider */}
+      <section className="rv-slider-section">
+        <div className="rv-slider-wrap">
 
-            {/* Reviews Slider */}
-            <div className="reviews-slider">
-              <div 
-                className="reviews-track"
-                style={{ transform: `translateX(-${currentReview * 100}%)` }}
-              >
-                {reviews.map((review) => (
-                  <div key={review.id} className="review-card">
-                    <div className="review-header">
-                      <div className="reviewer-image">{review.image}</div>
-                      <div className="reviewer-info">
-                        <h3 className="reviewer-name">{review.name}</h3>
-                        <p className="reviewer-course">{review.course}</p>
-                        <div className="review-rating">
-                          {[...Array(review.rating)].map((_, i) => (
-                            <span key={i} className="star">★</span>
-                          ))}
-                        </div>
+          {/* Prev */}
+          <button className="rv-arrow rv-prev" onClick={prev} aria-label="Previous">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          </button>
+
+          {/* Track */}
+          <div className="rv-slider">
+            <div
+              className="rv-track"
+              style={{ transform: `translateX(-${current * 100}%)` }}
+            >
+              {reviews.map(r => (
+                <div key={r.id} className="rv-card">
+                  <div className="rv-quote">"</div>
+                  <p className="rv-text">{r.text}</p>
+                  <div className="rv-footer">
+                    <div className="rv-avatar">{r.avatar}</div>
+                    <div className="rv-info">
+                      <p className="rv-name">{r.name}</p>
+                      <p className="rv-course">{r.course}</p>
+                      <div className="rv-stars">
+                        {[...Array(r.rating)].map((_, i) => <span key={i}>★</span>)}
                       </div>
                     </div>
-                    <div className="review-content">
-                      <p className="review-text">"{review.review}"</p>
-                      <p className="review-date">{review.date}</p>
-                    </div>
+                    <p className="rv-date">{r.date}</p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
-
-            <button className="slider-btn next-btn" onClick={nextReview} aria-label="Next review">
-              ›
-            </button>
           </div>
 
-          {/* Dots Navigation */}
-          <div className="slider-dots">
-            {reviews.map((_, index) => (
-              <button
-                key={index}
-                className={`dot ${index === currentReview ? 'active' : ''}`}
-                onClick={() => goToReview(index)}
-                aria-label={`Go to review ${index + 1}`}
-              />
-            ))}
-          </div>
+          {/* Next */}
+          <button className="rv-arrow rv-next" onClick={next} aria-label="Next">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
+
+        </div>
+
+        {/* Dots */}
+        <div className="rv-dots">
+          {reviews.map((_, i) => (
+            <button
+              key={i}
+              className={`rv-dot ${i === current ? 'active' : ''}`}
+              onClick={() => setCurrent(i)}
+              aria-label={`Review ${i + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Counter */}
+        <p className="rv-counter">{current + 1} / {reviews.length}</p>
+      </section>
+
+      {/* Stats */}
+      <section className="rv-stats">
+        <div className="rv-stat">
+          <strong>1,000+</strong>
+          <span>Happy Students</span>
+        </div>
+        <div className="rv-stat">
+          <strong>95%</strong>
+          <span>Placement Rate</span>
+        </div>
+        <div className="rv-stat">
+          <strong>4.9 / 5</strong>
+          <span>Average Rating</span>
+        </div>
+        <div className="rv-stat">
+          <strong>50+</strong>
+          <span>Partner Companies</span>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="stats-section">
-        <div className="stats-container">
-          <div className="stat-box">
-            <h3 className="stat-number">1000+</h3>
-            <p className="stat-label">Happy Students</p>
-          </div>
-          <div className="stat-box">
-            <h3 className="stat-number">95%</h3>
-            <p className="stat-label">Placement Rate</p>
-          </div>
-          <div className="stat-box">
-            <h3 className="stat-number">4.9/5</h3>
-            <p className="stat-label">Average Rating</p>
-          </div>
-          <div className="stat-box">
-            <h3 className="stat-number">50+</h3>
-            <p className="stat-label">Partner Companies</p>
-          </div>
-        </div>
+      {/* CTA */}
+      <section className="rv-cta">
+        <h2>Ready to start your journey?</h2>
+        <p>Join thousands of students who transformed their careers with us.</p>
+        <button className="rv-cta-btn">Apply Now →</button>
       </section>
 
-      {/* Call to Action */}
-      <section className="cta-section">
-        <h2 className="cta-title">Ready to Start Your Journey?</h2>
-        <p className="cta-text">Join thousands of successful students who transformed their careers with us</p>
-        <button className="cta-button">Apply Now</button>
-      </section>
     </div>
   );
 };
