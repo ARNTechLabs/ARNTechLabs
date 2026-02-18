@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
+import { programs } from '../../data/programs';
+import { steps } from '../../data/steps';
+import { companies } from '../../data/company_marquee';
+import { testimonials } from '../../data/testimonialCarousel';
+
+import ProgramCard from '../../components/ProgramCard/ProgramCard';
+import StepCard from '../../components/RegistrationStepsCard/StepCard';
+import TestimonialCarousel from '../../components/TestimonialCarousel/Testimonial';
 
 const Home = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -9,22 +17,6 @@ const Home = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const programs = [
-    { icon: "💻", title: "Full Stack Development", description: "Master React, Node.js, MongoDB. Build production-grade apps from scratch with real client projects.", duration: "8 Weeks", level: "All Levels", tag: "Most Popular" },
-    { icon: "📊", title: "Data Science & AI", description: "Python, TensorFlow, ML algorithms. Go from raw data to intelligent systems that solve real problems.", duration: "10 Weeks", level: "Intermediate", tag: "Trending" },
-    { icon: "🎨", title: "UI/UX Design", description: "Figma, design systems, user research. Create interfaces people love using every day.", duration: "6 Weeks", level: "Beginner", tag: "" },
-    { icon: "📱", title: "Mobile Development", description: "React Native & Flutter. Ship to both App Store and Play Store with a single codebase.", duration: "8 Weeks", level: "Intermediate", tag: "" },
-    { icon: "🔒", title: "Cybersecurity", description: "Ethical hacking, penetration testing, network defence. Become the expert companies need most.", duration: "12 Weeks", level: "Advanced", tag: "High Demand" },
-    { icon: "☁️", title: "Cloud & DevOps", description: "AWS, Azure, Docker, Kubernetes. Build scalable infrastructure that powers modern software.", duration: "10 Weeks", level: "Intermediate", tag: "" },
-  ];
-
-  const steps = [
-    { number: "01", title: "Apply Online", description: "Fill out a short application. We review every submission personally within 24 hours." },
-    { number: "02", title: "Get Matched", description: "We pair you with a mentor and program that fits your goals and current skill level." },
-    { number: "03", title: "Learn & Build", description: "Work on real projects with expert guidance, live sessions, and peer collaboration." },
-    { number: "04", title: "Get Placed", description: "Leverage our network of 100+ hiring partners to land your first or next tech role." },
-  ];
 
   return (
     <div className="home-container">
@@ -95,8 +87,7 @@ const Home = () => {
         <p className="marquee-label">Our students work at</p>
         <div className="marquee-wrap">
           <div className="marquee-track">
-            {['TCS', 'Infosys', 'Wipro', 'HCL', 'Cognizant', 'Accenture', 'IBM', 'Oracle', 'SAP', 'Capgemini',
-              'TCS', 'Infosys', 'Wipro', 'HCL', 'Cognizant', 'Accenture', 'IBM', 'Oracle', 'SAP', 'Capgemini'].map((c, i) => (
+            {companies.map((c, i) => (
               <span key={i} className="marquee-item">{c}</span>
             ))}
           </div>
@@ -113,20 +104,8 @@ const Home = () => {
           </p>
         </div>
         <div className="programs-grid">
-          {programs.map((p, i) => (
-            <div key={i} className="program-card">
-              {p.tag && <div className="program-tag">{p.tag}</div>}
-              <div className="program-icon">{p.icon}</div>
-              <h3 className="program-name">{p.title}</h3>
-              <p className="program-desc">{p.description}</p>
-              <div className="program-footer">
-                <div className="program-badges">
-                  <span className="badge">⏱ {p.duration}</span>
-                  <span className="badge">📈 {p.level}</span>
-                </div>
-                <button className="program-cta">Learn more →</button>
-              </div>
-            </div>
+          {programs.map((program, index) => (
+            <ProgramCard program={program} key={program.id} />
           ))}
         </div>
       </section>
@@ -139,12 +118,8 @@ const Home = () => {
             <h2 className="section-title">Four steps to your<br />dream role.</h2>
           </div>
           <div className="steps-grid">
-            {steps.map((s, i) => (
-              <div key={i} className="step-card">
-                <div className="step-number">{s.number}</div>
-                <h3 className="step-title">{s.title}</h3>
-                <p className="step-desc">{s.description}</p>
-              </div>
+            {steps.map((step, i) => (
+              <StepCard step={step} key={step.id} />
             ))}
           </div>
         </div>
@@ -153,21 +128,11 @@ const Home = () => {
       {/* Testimonial */}
       <section className="testimonial-section">
         <div className="testimonial-inner">
-          <div className="testimonial-quote">"</div>
-          <p className="testimonial-text">
-            I came in with zero professional experience and left with a portfolio,
-            a certificate, and an offer from Infosys. The mentorship at CodSoft
-            is genuinely unlike anything else I've found online.
-          </p>
-          <div className="testimonial-author">
-            <div className="author-avatar">👩‍💻</div>
-            <div>
-              <p className="author-name">Priya Sharma</p>
-              <p className="author-role">Full Stack Developer · Infosys</p>
-            </div>
-          </div>
+          <TestimonialCarousel testimonials={testimonials} />
         </div>
       </section>
+
+
 
       {/* CTA Banner */}
       <section className="cta-section">
