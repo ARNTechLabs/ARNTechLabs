@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
-import { programs } from '../../data/programs';
-import { steps } from '../../data/steps';
-import { companies } from '../../data/company_marquee';
-import { testimonials } from '../../data/testimonialCarousel';
+import { programs } from '../../data/programs_data';
+import { steps } from '../../data/steps_data';
+import { companies } from '../../data/company_marquee_data';
+import { testimonials } from '../../data/testimonialCarousel_data';
 
 import ProgramCard from '../../components/ProgramCard/ProgramCard';
 import StepCard from '../../components/RegistrationStepsCard/StepCard';
-import TestimonialCarousel from '../../components/TestimonialCarousel/Testimonial';
+import TestimonialCarousel from '../../components/TestimonialCarousel/TestimonialCarousel';
 
 const Home = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -125,14 +125,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonial */}
-      <section className="testimonial-section">
-        <div className="testimonial-inner">
-          <TestimonialCarousel testimonials={testimonials} />
-        </div>
-      </section>
-
-
+      {/* Testimonial - NO wrapper sections, carousel handles everything */}
+      <TestimonialCarousel testimonials={testimonials} />
 
       {/* CTA Banner */}
       <section className="cta-section">
