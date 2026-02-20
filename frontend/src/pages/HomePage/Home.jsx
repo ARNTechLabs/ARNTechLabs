@@ -31,7 +31,7 @@ const Home = () => {
             <span className="hero-title-accent">companies hire for.</span>
           </h1>
           <p className="hero-subtitle">
-            CodSoft turns ambitious learners into job-ready professionals through
+            ED-TECH turns ambitious learners into job-ready professionals through
             hands-on internship programs built around real work, not theory.
           </p>
           <div className="hero-cta">
