@@ -2,6 +2,7 @@ import App from "../App";
 import Home from "../pages/HomePage/Home";
 import About from "../pages/AboutPage/About";
 import Review from "../pages/ReviewPage/Review";
+import Programs from "../pages/ProgramsPage/Programs";
 
 import { createBrowserRouter } from "react-router-dom";
 
@@ -21,6 +22,10 @@ const my_router = createBrowserRouter(
                 {
                     path: '/reviews',
                     element: <Review />
+                },
+                {
+                    path: '/programs',
+                    element: <Programs />
                 }
             ]
         }

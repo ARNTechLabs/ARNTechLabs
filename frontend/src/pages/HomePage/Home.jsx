@@ -31,7 +31,7 @@ const Home = () => {
             <span className="hero-title-accent">companies hire for.</span>
           </h1>
           <p className="hero-subtitle">
-            ED-TECH turns ambitious learners into job-ready professionals through
+            ARN TechLabs turns ambitious learners into job-ready professionals through
             hands-on internship programs built around real work, not theory.
           </p>
           <div className="hero-cta">
@@ -104,21 +104,25 @@ const Home = () => {
           </p>
         </div>
         <div className="programs-grid">
-          
+
         </div>
       </section>
 
       {/* How it works */}
       <section className="steps-section">
-        <div className="steps-inner">
-          <div className="section-header left-align">
+        <div className="steps-container">
+          <div className="section-header">
             <p className="section-eyebrow">HOW IT WORKS</p>
             <h2 className="section-title">Four steps to your<br />dream role.</h2>
           </div>
-          <div className="steps-grid">
-            {steps.map((step, i) => (
-              <StepCard step={step} key={step.id} />
-            ))}
+
+          <div className="timeline-wrapper">
+            <div className="timeline-line"></div>
+            <div className="timeline-steps">
+              {steps.map((step, index) => (
+                <StepCard step={step} key={step.id} index={index} />
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -15,7 +15,7 @@ const Navbar = () => {
                 <div className="navbar-content">
                     {/* Logo */}
                     <div className="navbar-logo">
-                        <NavLink to='/' ><span className="logo-text">ED-tech</span></NavLink>
+                        <NavLink to='/' ><span className="logo-text">ARN TechLabs</span></NavLink>
                     </div>
 
                     {/* Desktop Navigation */}
@@ -23,7 +23,7 @@ const Navbar = () => {
                         <NavLink to='/' className='nav-link'>Home</NavLink>
                         <NavLink to='/about' className='nav-link'>About</NavLink>
                         <NavLink to='/reviews' className='nav-link'>Reviews</NavLink>
-                        <a href="#programs-section" className="nav-link">Programs</a>
+                        <NavLink to='/programs' className='nav-link'>Programs</NavLink>
                     </div>
 
                     {/* CTA Buttons */}
@@ -61,9 +61,9 @@ const Navbar = () => {
                 <div className="mobile-menu">
                     <div className="mobile-menu-content">
                         <NavLink to='/' className="mobile-link">Home</NavLink>
-                        <a href="#programs" className="mobile-link">Programs</a>
-                        <a href="#about" className="mobile-link">About</a>
-                        <a href="#contact" className="mobile-link">Contact</a>
+                        <NavLink to='/about' className='mobile-link'>About</NavLink>
+                        <NavLink to='/reviews' className='mobile-link'>Reviews</NavLink>
+                        <NavLink to='/programs' className='mobile-link'>Programs</NavLink>
                         <div className="mobile-buttons">
                             <button className="btn btn-outline">Sign In</button>
                             <button className="btn btn-primary">Get Started</button>

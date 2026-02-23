@@ -55,7 +55,7 @@ function Footer() {
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/about">About Us</NavLink></li>
                         <li><NavLink to="/reviews">Reviews</NavLink></li>
-                        <li><a href="#programs-section">Programs</a></li>
+                        <li><NavLink to="/programs">Programs</NavLink></li>
                     </ul>
                 </div>
 
