@@ -104,9 +104,7 @@ const Home = () => {
           </p>
         </div>
         <div className="programs-grid">
-          {programs.map((program, index) => (
-            <ProgramCard program={program} key={program.id} />
-          ))}
+          
         </div>
       </section>
 
