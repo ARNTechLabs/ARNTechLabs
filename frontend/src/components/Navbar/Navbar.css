@@ -291,3 +291,27 @@
     width: 100%;
   }
 }
+
+/* User greeting */
+.user-greeting {
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.user-greeting-mobile {
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+
+/* Make sure Link buttons look right */
+.navbar-buttons .btn,
+.mobile-buttons .btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 import './Navbar.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { user, logout, isAuthenticated } = useAuth();
+    const navigate = useNavigate();
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
+    };
+
+    const handleLogout = () => {
+        logout();
+        navigate('/');
     };
 
     return (
@@ -15,7 +23,9 @@ const Navbar = () => {
                 <div className="navbar-content">
                     {/* Logo */}
                     <div className="navbar-logo">
-                        <NavLink to='/' ><span className="logo-text">ARN TechLabs</span></NavLink>
+                        <NavLink to='/'>
+                            <span className="logo-text">ARN TechLabs</span>
+                        </NavLink>
                     </div>
 
                     {/* Desktop Navigation */}
@@ -28,8 +38,17 @@ const Navbar = () => {
 
                     {/* CTA Buttons */}
                     <div className="navbar-buttons">
-                        <button className="btn btn-outline">Sign In</button>
-                        <button className="btn btn-primary">Get Started</button>
+                        {isAuthenticated ? (
+                            <>
+                                <span className="user-greeting">Hi, {user?.name}</span>
+                                <button onClick={handleLogout} className="btn btn-outline">Logout</button>
+                            </>
+                        ) : (
+                            <>
+                                <Link to="/signin" className="btn btn-outline">Sign In</Link>
+                                <Link to="/register" className="btn btn-primary">Get Started</Link>
+                            </>
+                        )}
                     </div>
 
                     {/* Mobile menu button */}
@@ -61,16 +80,27 @@ const Navbar = () => {
                 <div className="mobile-menu">
                     <div className="mobile-menu-content">
                         <NavLink to='/' className="mobile-link">Home</NavLink>
-                        <NavLink to='/about' className='mobile-link'>About</NavLink>
-                        <NavLink to='/reviews' className='mobile-link'>Reviews</NavLink>
-                        <NavLink to='/programs' className='mobile-link'>Programs</NavLink>
+                        <NavLink to='/about' className="mobile-link">About</NavLink>
+                        <NavLink to='/reviews' className="mobile-link">Reviews</NavLink>
+                        <NavLink to='/programs' className="mobile-link">Programs</NavLink>
                         <div className="mobile-buttons">
-                            <button className="btn btn-outline">Sign In</button>
-                            <button className="btn btn-primary">Get Started</button>
+                            {isAuthenticated ? (
+                                <>
+                                    <span className="user-greeting-mobile">Hi, {user?.name}</span>
+                                    <button onClick={handleLogout} className="btn btn-outline">Logout</button>
+                                </>
+                            ) : (
+                                <>
+                                    <Link to="/signin" className="btn btn-outline">Sign In</Link>
+                                    <Link to="/register" className="btn btn-primary">Get Started</Link>
+                                </>
+                            )}
                         </div>
                     </div>
                 </div>
             )}
+            <div className="navbar-buttons">
+            </div>
         </nav>
     );
 };

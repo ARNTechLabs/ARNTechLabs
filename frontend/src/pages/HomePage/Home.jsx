@@ -8,6 +8,7 @@ import { testimonials } from '../../data/testimonialCarousel_data';
 import ProgramCard from '../../components/ProgramCard/ProgramCard';
 import StepCard from '../../components/RegistrationStepsCard/StepCard';
 import TestimonialCarousel from '../../components/TestimonialCarousel/TestimonialCarousel';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -36,7 +37,7 @@ const Home = () => {
           </p>
           <div className="hero-cta">
             <button className="btn-primary">Start Your Journey</button>
-            <button className="btn-ghost">Browse Programs ↓</button>
+            <Link to='/programs'><button className="btn-ghost">Browse Programs</button></Link>
           </div>
           <div className="hero-stats">
             <div className="hero-stat">
@@ -56,27 +57,7 @@ const Home = () => {
           </div>
         </div>
         <div className="hero-visual">
-          <div className="floating-card card-1">
-            <span className="fc-icon">🎓</span>
-            <div>
-              <p className="fc-title">Offer Letter</p>
-              <p className="fc-sub">Priya S. — TCS</p>
-            </div>
-          </div>
-          <div className="floating-card card-2">
-            <span className="fc-icon">📈</span>
-            <div>
-              <p className="fc-title">Skill growth</p>
-              <p className="fc-sub">+340% this month</p>
-            </div>
-          </div>
-          <div className="floating-card card-3">
-            <span className="fc-icon">✅</span>
-            <div>
-              <p className="fc-title">Project shipped</p>
-              <p className="fc-sub">Full Stack App</p>
-            </div>
-          </div>
+
           <div className="hero-orb orb-1" />
           <div className="hero-orb orb-2" />
         </div>
