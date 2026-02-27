@@ -1,6 +1,8 @@
 #!/bin/bash
 
-echo "Setting up EdTech Backend..."
+echo "Setting up ARNTechLabs Backend..."
+
+"D:\Projects\FullStack\Startup\backend"
 
 # Install dependencies
 echo "Installing dependencies..."
