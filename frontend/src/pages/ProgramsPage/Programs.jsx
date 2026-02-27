@@ -52,7 +52,6 @@ const Programs = () => {
       <section className="programs-cta-section">
         <div className="programs-cta-inner">
           <h2 className="programs-cta-title">Ready to start learning?</h2>
-          <p className="programs-cta-subtitle">NOOB</p>
           <Link to='/register'><button className="programs-btn-primary">Get Started Today →</button></Link>
         </div>
       </section>

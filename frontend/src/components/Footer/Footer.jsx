@@ -64,7 +64,6 @@ function Footer() {
                     <h4>Legal</h4>
                     <ul>
                         <li><a href="/privacy">Privacy Policy</a></li>
-                        <li><a href="/refund">Refund Policy</a></li>
                         <li><a href="/terms">Terms &amp; Conditions</a></li>
                     </ul>
                 </div>

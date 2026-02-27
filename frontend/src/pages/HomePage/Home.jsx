@@ -34,7 +34,7 @@ const Home = () => {
             hands-on internship programs built around real work, not theory.
           </p>
           <div className="hero-cta">
-            <button className="btn-primary">Start Your Journey</button>
+            <Link to='/register'><button className="btn-primary">Start Your Journey</button></Link>
             <Link to='/programs'><button className="btn-ghost">Browse Programs</button></Link>
           </div>
           <div className="hero-stats">
