@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
-import { programs } from '../../data/programs_data';
 import { steps } from '../../data/steps_data';
 import { companies } from '../../data/company_marquee_data';
 import { testimonials } from '../../data/testimonialCarousel_data';
 
-import ProgramCard from '../../components/ProgramCard/ProgramCard';
 import StepCard from '../../components/RegistrationStepsCard/StepCard';
 import TestimonialCarousel from '../../components/TestimonialCarousel/TestimonialCarousel';
 import { Link } from 'react-router-dom';
@@ -26,7 +24,7 @@ const Home = () => {
       <section className="home-hero">
         <div className="hero-bg-grid" />
         <div className="hero-inner">
-          <div className="hero-badge">🚀 Now enrolling — Batch 2026</div>
+          <div className="hero-badge"> Now enrolling — Batch 2026</div>
           <h1 className="hero-title">
             Build the skills<br />
             <span className="hero-title-accent">companies hire for.</span>
@@ -116,7 +114,7 @@ const Home = () => {
         <div className="cta-inner">
           <h2 className="cta-title">Your next opportunity<br />starts here.</h2>
           <p className="cta-sub">Applications are open. Limited seats per batch.</p>
-          <button className="btn-primary btn-large">Apply for Free →</button>
+          <Link to='/register'><button className="btn-primary btn-large">Get Started →</button></Link>
         </div>
       </section>
 

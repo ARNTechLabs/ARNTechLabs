@@ -40,7 +40,7 @@ const About = () => {
       {/* Mission & Vision */}
       <section className="about-mv">
         <div className="mv-card">
-          <span className="mv-icon">🎯</span>
+          <span className="mv-icon"></span>
           <h2>Our Mission</h2>
           <p>
             To keep every student job-ready by building curriculum directly from
@@ -49,7 +49,7 @@ const About = () => {
           </p>
         </div>
         <div className="mv-card">
-          <span className="mv-icon">🚀</span>
+          <span className="mv-icon"></span>
           <h2>Our Vision</h2>
           <p>
             A world where geography and privilege don't decide who gets quality
@@ -64,10 +64,10 @@ const About = () => {
         <h2 className="about-section-title">What we stand for</h2>
         <div className="values-grid">
           {[
-            { icon: '💡', title: 'Innovation',   desc: 'Always teaching what employers need today, not yesterday.' },
-            { icon: '🤝', title: 'Inclusion',    desc: 'Quality education for everyone, regardless of background.' },
-            { icon: '🔨', title: 'Practicality', desc: 'Real client projects. Skills that translate into real jobs.' },
-            { icon: '📈', title: 'Growth',       desc: 'We care about your career long after you complete the program.' },
+            { icon: '', title: 'Innovation',   desc: 'Always teaching what employers need today, not yesterday.' },
+            { icon: '', title: 'Inclusion',    desc: 'Quality education for everyone, regardless of background.' },
+            { icon: '', title: 'Practicality', desc: 'Real client projects. Skills that translate into real jobs.' },
+            { icon: '', title: 'Growth',       desc: 'We care about your career long after you complete the program.' },
           ].map((v, i) => (
             <div key={i} className="value-card">
               <span className="value-icon">{v.icon}</span>

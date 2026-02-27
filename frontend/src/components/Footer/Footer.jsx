@@ -10,14 +10,14 @@ function Footer() {
 
                 {/* Brand */}
                 <div className="footer-brand">
-                    <p className="footer-logo">⚡ ED<span>tech</span></p>
+                    <p className="footer-logo">ARN <span>TechLabs</span></p>
                     <p className="footer-bio">
                         Empowering the next generation of tech professionals
                         through hands-on learning and real industry mentorship.
                     </p>
                     <div className="footer-socials">
                         {/* Instagram */}
-                        <a href="#" aria-label="Instagram">
+                        <a href="https://www.instagram.com/arntechlabs?igsh=MW5wNm9zOWxrMm51Mg==" aria-label="Instagram">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <rect x="2" y="2" width="20" height="20" rx="5"/>
                                 <circle cx="12" cy="12" r="3"/>
@@ -79,7 +79,7 @@ function Footer() {
                         <input type="email" placeholder="Your email address" />
                         <button type="button">Subscribe →</button>
                     </div>
-                    <p className="footer-contact">📧 hello@edtech.in</p>
+                    <p className="footer-contact"> hello@ARNTechLabs.in</p>
                 </div>
 
             </div>
@@ -87,10 +87,10 @@ function Footer() {
             {/* Bottom bar */}
             <div className="footer-bottom">
                 <p className="footer-copy">
-                    ©2026 <strong>ED-TECH</strong>. All Rights Reserved.
+                    ©2026 <strong>ARNTechLabs</strong>. All Rights Reserved.
                 </p>
                 <p className="footer-credit">
-                    Designed by Team <strong>EdTech</strong>
+                    Designed by Team <strong>ARNTechLabs</strong>
                 </p>
             </div>
 

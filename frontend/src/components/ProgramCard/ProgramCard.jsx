@@ -9,8 +9,8 @@ function ProgramCard({program}) {
             <p className="program-desc">{program.description}</p>
             <div className="program-footer">
                 <div className="program-badges">
-                    <span className="badge">⏱ {program.duration}</span>
-                    <span className="badge">📈 {program.level}</span>
+                    <span className="badge"> {program.duration}</span>
+                    <span className="badge"> {program.level}</span>
                 </div>
                 <Link><button className="program-cta">Learn more →</button></Link>
             </div>

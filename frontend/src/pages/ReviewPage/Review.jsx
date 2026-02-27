@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { reviews } from '../../data/reviews_data';
+import { Link } from 'react-router-dom';
 import './Review.css';
 
 const Review = () => {
@@ -111,7 +112,7 @@ const Review = () => {
       <section className="rv-cta">
         <h2>Ready to start your journey?</h2>
         <p>Join thousands of students who transformed their careers with us.</p>
-        <button className="rv-cta-btn">Apply Now →</button>
+        <Link to='/programs'><button className="rv-cta-btn">Apply Now →</button></Link>
       </section>
 
     </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { programs } from '../../data/programs_data';
+import { Link } from 'react-router-dom';
 import ProgramCard from '../../components/ProgramCard/ProgramCard';
 import './Programs.css';
 
@@ -52,7 +53,7 @@ const Programs = () => {
         <div className="programs-cta-inner">
           <h2 className="programs-cta-title">Ready to start learning?</h2>
           <p className="programs-cta-subtitle">NOOB</p>
-          <button className="programs-btn-primary">Get Started Today →</button>
+          <Link to='/register'><button className="programs-btn-primary">Get Started Today →</button></Link>
         </div>
       </section>
     </div>
