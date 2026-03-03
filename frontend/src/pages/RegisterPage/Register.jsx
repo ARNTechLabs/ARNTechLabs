@@ -6,7 +6,7 @@ import './Register.css';
 const Register = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
-  
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,7 +17,7 @@ const Register = () => {
     confirmPassword: '',
     agreeToTerms: false
   });
-  
+
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState('');
@@ -39,7 +39,7 @@ const Register = () => {
       ...prev,
       [name]: type === 'checkbox' ? checked : value
     }));
-    
+
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
@@ -48,53 +48,53 @@ const Register = () => {
 
   const validate = () => {
     const newErrors = {};
-    
+
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
     }
-    
+
     if (!formData.email) {
       newErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Email is invalid';
     }
-    
+
     if (!formData.phone) {
       newErrors.phone = 'Mobile number is required';
     } else if (!/^[0-9]{10}$/.test(formData.phone.replace(/\D/g, ''))) {
       newErrors.phone = 'Mobile number must be 10 digits';
     }
-    
+
     if (!formData.qualification) {
       newErrors.qualification = 'Please select your qualification';
     }
-    
+
     if (!formData.interestedCourse.trim()) {
       newErrors.interestedCourse = 'Interested course is required';
     }
-    
+
     if (!formData.password) {
       newErrors.password = 'Password is required';
     } else if (formData.password.length < 6) {
       newErrors.password = 'Password must be at least 6 characters';
     }
-    
+
     if (!formData.confirmPassword) {
       newErrors.confirmPassword = 'Please confirm your password';
     } else if (formData.password !== formData.confirmPassword) {
       newErrors.confirmPassword = 'Passwords do not match';
     }
-    
+
     if (!formData.agreeToTerms) {
       newErrors.agreeToTerms = 'You must agree to the terms and conditions';
     }
-    
+
     return newErrors;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const newErrors = validate();
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -105,7 +105,9 @@ const Register = () => {
     setApiError('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/register', {
+      const API = import.meta.env.VITE_API_URL;
+
+      const response = await fetch(`${API}/api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -151,7 +153,7 @@ const Register = () => {
           )}
 
           <form onSubmit={handleSubmit} className="auth-form">
-            
+
             {/* Name */}
             <div className="form-group">
               <label htmlFor="name" className="form-label">Full Name</label>

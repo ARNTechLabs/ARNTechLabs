@@ -8,8 +8,17 @@ const db = require('./database/db');
 
 const app = express();
 
+const API = import.meta.env.VITE_API_URL;
+
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://arn-tech-labs.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json());
 
 // JWT Secret
