@@ -1,0 +1,90 @@
+/* Tech Card */
+.tech-card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px 32px;
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.tech-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Tech Logo Wrapper */
+.tech-logo-wrapper {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.tech-card:hover .tech-logo-wrapper {
+  transform: scale(1.1);
+}
+
+/* Tech Logo */
+.tech-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Special handling for dark logos (Django, Flask, Unity) */
+.dark-logo {
+  filter: brightness(0) saturate(100%);
+}
+
+/* Tech Name */
+.tech-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0a1628;
+  margin: 0;
+  text-align: center;
+  letter-spacing: -0.3px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tech-card {
+    min-width: 160px;
+    padding: 32px 24px;
+  }
+
+  .tech-logo-wrapper {
+    width: 70px;
+    height: 70px;
+  }
+
+  .tech-name {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-card {
+    min-width: 140px;
+    padding: 28px 20px;
+  }
+
+  .tech-logo-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .tech-name {
+    font-size: 0.95rem;
+  }
+}

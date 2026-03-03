@@ -717,3 +717,488 @@
     display: none;
   }
 }
+
+
+/* Add to Home.css */
+
+.hero-badge .material-icons-round {
+  font-size: 1.2rem;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.fc-icon .material-icons-round {
+  font-size: 1.8rem;
+  color: #0056b3;
+}
+
+/* ────────────────────────────────────────────────────────────
+   CERTIFICATES SECTION - MINIMAL & SPACIOUS
+─────────────────────────────────────────────────────────────*/
+.certificates-section {
+  background: #fafbfc;
+  padding: 120px 80px;
+}
+
+.certificates-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Grid Layout */
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  margin-top: 80px;
+}
+
+/* Certificate Card */
+.certificate-card {
+  background: white;
+  border-radius: 16px;
+  padding: 48px 36px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid #e5e7eb;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+.certificate-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: #66b3ff;
+}
+
+/* Featured Card (MSME) */
+.cert-featured {
+  background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+  border: 2px solid #0056b3;
+  position: relative;
+}
+
+.cert-featured::before {
+  content: 'OFFICIAL';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #0056b3;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+}
+
+/* Icon Wrapper */
+.cert-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 32px;
+  background: linear-gradient(135deg, #e8f1fb 0%, #f0f9ff 100%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cert-main-icon {
+  font-size: 3rem !important;
+  color: #0056b3;
+}
+
+/* Logo Wrapper */
+.cert-logo-wrapper {
+  width: 250px;
+  height: 200px;
+  margin: 0 auto 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cert-msme-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cert-internship{
+  width: 280px;
+  height: 220px;
+}
+
+/* Card Title */
+.cert-card-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0a1628;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.3px;
+}
+
+/* Card Description */
+.cert-card-desc {
+  font-size: 1rem;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+}
+
+/* Features List */
+.cert-features {
+  list-style: none;
+  padding: 0;
+  margin: auto 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.cert-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+.cert-features .material-icons-round {
+  font-size: 1.25rem !important;
+  color: #22c55e;
+  flex-shrink: 0;
+}
+
+/* MSME Info */
+.msme-info {
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.msme-reg-number {
+  font-size: 0.95rem;
+  color: #0a1628;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  font-family: 'Courier New', monospace;
+}
+
+.msme-act-info {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .certificates-section {
+    padding: 100px 60px;
+  }
+
+  .certificates-grid {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .certificates-section {
+    padding: 80px 40px;
+  }
+
+  .certificates-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .certificate-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .certificates-section {
+    padding: 60px 24px;
+  }
+
+  .certificates-grid {
+    margin-top: 60px;
+  }
+
+  .certificate-card {
+    padding: 36px 28px;
+  }
+
+  .cert-card-title {
+    font-size: 1.35rem;
+  }
+
+  .cert-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 24px;
+  }
+
+  .cert-main-icon {
+    font-size: 2.5rem !important;
+  }
+
+  .cert-logo-wrapper {
+    width: 140px;
+    height: 100px;
+    margin-bottom: 24px;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   WE TEACH SECTION
+─────────────────────────────────────────────────────────────*/
+.we-teach-section {
+  background: #f9fafb;
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+.we-teach-container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Title */
+.we-teach-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-align: center;
+  color: #0a1628;
+  margin: 0 0 80px 0;
+  letter-spacing: -1px;
+}
+
+.teach-accent {
+  color: #0056b3;
+}
+
+/* Marquee Wrapper */
+.tech-marquee-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.tech-marquee-track {
+  display: flex;
+  gap: 32px;
+  animation: techScroll 50s linear infinite;
+  width: max-content;
+  padding: 20px 0;
+}
+
+.tech-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes techScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .we-teach-section {
+    padding: 80px 0;
+  }
+
+  .we-teach-title {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+  }
+
+  .tech-marquee-track {
+    gap: 24px;
+    animation: techScroll 40s linear infinite;
+  }
+}
+
+@media (max-width: 480px) {
+  .we-teach-title {
+    font-size: 2rem;
+  }
+
+  .tech-marquee-track {
+    animation: techScroll 35s linear infinite;
+  }
+}
+
+/* ── Hero Visual ───────────────────────────────────────────── */
+.hero-visual {
+  flex: 1;
+  position: relative;
+  min-height: 500px;
+  max-width: 600px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeUp 1.1s ease 0.2s both;
+}
+
+/* Logo Container */
+.hero-logo-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(-2deg);
+  }
+}
+
+.hero-logo-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.3));
+  transition: all 0.3s ease;
+}
+
+.hero-logo-image:hover {
+  filter: drop-shadow(0 30px 60px rgba(102, 179, 255, 0.4));
+  transform: scale(1.05);
+}
+
+/* Orbs - Background Effects */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(102, 179, 255, 0.4) 0%, transparent 70%);
+  top: 10%;
+  right: 10%;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+  bottom: 15%;
+  left: 5%;
+  animation-delay: 2s;
+}
+
+.orb-3 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(102, 179, 255, 0.3) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 4s;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-visual {
+    min-height: 350px;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .hero-logo-container {
+    max-width: 350px;
+  }
+
+  .orb-1 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .orb-2 {
+    width: 250px;
+    height: 250px;
+  }
+
+  .orb-3 {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-visual {
+    min-height: 280px;
+    max-width: 300px;
+  }
+
+  .hero-logo-container {
+    max-width: 280px;
+  }
+
+  .hero-logo-image {
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.2));
+  }
+
+  .orb-1 {
+    width: 250px;
+    height: 250px;
+  }
+
+  .orb-2 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .orb-3 {
+    width: 150px;
+    height: 150px;
+  }
+}

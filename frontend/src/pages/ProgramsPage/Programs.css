@@ -299,3 +299,11 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Add to Programs.css */
+
+.feature-icon .material-icons-round {
+  font-size: 3rem;
+  color: #0056b3;
+}

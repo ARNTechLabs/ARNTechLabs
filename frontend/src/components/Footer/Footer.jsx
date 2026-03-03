@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 function Footer() {
     return (
         <footer className="footer">
-
             {/* Top grid */}
             <div className="footer-grid">
 
@@ -68,7 +67,7 @@ function Footer() {
                     </ul>
                 </div>
 
-                {/* Newsletter */}
+                {/* Newsletter
                 <div className="footer-col">
                     <h4>Stay Updated</h4>
                     <p className="footer-newsletter-text">
@@ -79,7 +78,7 @@ function Footer() {
                         <button type="button">Subscribe →</button>
                     </div>
                     <p className="footer-contact"> hello@ARNTechLabs.in</p>
-                </div>
+                </div> */}
 
             </div>
 

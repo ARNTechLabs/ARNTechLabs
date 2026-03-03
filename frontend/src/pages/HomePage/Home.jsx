@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Home.css';
 import { steps } from '../../data/steps_data';
 import { companies } from '../../data/company_marquee_data';
 import { testimonials } from '../../data/testimonialCarousel_data';
+import { technologies } from '../../data/weteach_marquee_data';
+import MSMELogo from '../../assets/MSME_Logo.svg'
+import IntershipCertificate from '../../assets/Internship_Certificate_Template.png'
 
 import StepCard from '../../components/RegistrationStepsCard/StepCard';
 import TestimonialCarousel from '../../components/TestimonialCarousel/TestimonialCarousel';
-import { Link } from 'react-router-dom';
+import WeTeachCard from '../../components/WeTeachCard/WeTeachCard';
 
 const Home = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -24,7 +28,10 @@ const Home = () => {
       <section className="home-hero">
         <div className="hero-bg-grid" />
         <div className="hero-inner">
-          <div className="hero-badge"> Now enrolling — Batch 2026</div>
+          <div className="hero-badge">
+            <span className="material-icons-round">rocket_launch</span>
+            Now enrolling — Batch 2026
+          </div>
           <h1 className="hero-title">
             Build the skills<br />
             <span className="hero-title-accent">companies hire for.</span>
@@ -55,9 +62,12 @@ const Home = () => {
           </div>
         </div>
         <div className="hero-visual">
-
+          <div className="hero-logo-container">
+            <img src="/ARNTechLabs_LOGO.png" alt="ED-tech" className="hero-logo-image" />
+          </div>
           <div className="hero-orb orb-1" />
           <div className="hero-orb orb-2" />
+          <div className="hero-orb orb-3" />
         </div>
       </section>
 
@@ -72,20 +82,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-      {/* Programs */}
-      <section className="programs-section" id="programs">
-        <div className="section-header">
-          <p className="section-eyebrow">PROGRAMS</p>
-          <h2 className="section-title">Find your path.</h2>
-          <p className="section-subtitle">
-            Six intensive tracks designed with industry leaders to match what employers actually need.
-          </p>
-        </div>
-        <div className="programs-grid">
-
-        </div>
-      </section>
 
       {/* How it works */}
       <section className="steps-section">
@@ -106,15 +102,109 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonial - NO wrapper sections, carousel handles everything */}
-      <TestimonialCarousel testimonials={testimonials} />
+      {/* We Teach Section */}
+      <section className="we-teach-section">
+        <div className="we-teach-container">
+          <h2 className="we-teach-title">
+            We <span className="teach-accent">Teach</span>
+          </h2>
+
+          <div className="tech-marquee-wrapper">
+            <div className="tech-marquee-track">
+              {/* First set */}
+              {technologies.map((tech) => (
+                <WeTeachCard key={tech.id} technology={tech} />
+              ))}
+              
+              {/* Duplicate set for seamless loop */}
+              {technologies.map((tech) => (
+                <WeTeachCard key={`duplicate-${tech.id}`} technology={tech} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonial */}
+      {/* <TestimonialCarousel testimonials={testimonials} /> */}
+
+      {/* Certificates Section */}
+      <section className="certificates-section">
+        <div className="certificates-container">
+          <div className="section-header">
+            <p className="section-eyebrow">Industry-Recognized Certifications</p>
+            <h2 className="section-title">OUR ACCREDITATIONS</h2>
+          </div>
+
+          <div className="certificates-grid">
+            {/* Certificate 1 - Completion */}
+            <div className="certificate-card">
+              <div className="cert-icon-wrapper">
+                <span className="material-icons-round cert-main-icon">workspace_premium</span>
+              </div>
+              <h3 className="cert-card-title">Certificate of Completion</h3>
+              <p className="cert-card-desc">Awarded upon successful completion of training</p>
+              <ul className="cert-features">
+                <li>
+                  <span className="material-icons-round">check</span>
+                  Industry recognized
+                </li>
+                <li>
+                  <span className="material-icons-round">check</span>
+                  Validates technical skills
+                </li>
+                <li>
+                  <span className="material-icons-round">check</span>
+                  Practical experience proof
+                </li>
+              </ul>
+            </div>
+
+            {/* Certificate 2 - MSME */}
+            <div className="certificate-card cert-featured">
+              <div className="cert-logo-wrapper">
+                <img src={MSMELogo} alt="MSME Logo" className="cert-msme-logo" />
+              </div>
+              <h3 className="cert-card-title">MSME Registered</h3>
+              <p className="cert-card-desc">Ministry of Micro, Small & Medium Enterprises</p>
+              <div className="msme-info">
+                <p className="msme-reg-number">UDYAM-KR-07-0066258</p>
+                <p className="msme-act-info">Registered under MSME Act, 2006</p>
+              </div>
+            </div>
+
+            {/* Certificate 3 - Internship */}
+            <div className="certificate-card">
+              <div className="cert-logo-wrapper">
+                <img src={IntershipCertificate} alt="Internship Certificate" className='cert-internship'/>
+              </div>
+              <h3 className="cert-card-title">Internship Certificate</h3>
+              <p className="cert-card-desc">Real-world industry experience recognition</p>
+              <ul className="cert-features">
+                <li>
+                  <span className="material-icons-round">check</span>
+                  Hands-on projects
+                </li>
+                <li>
+                  <span className="material-icons-round">check</span>
+                  Industry mentorship
+                </li>
+                <li>
+                  <span className="material-icons-round">check</span>
+                  Work experience
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* CTA Banner */}
       <section className="cta-section">
         <div className="cta-inner">
           <h2 className="cta-title">Your next opportunity<br />starts here.</h2>
           <p className="cta-sub">Applications are open. Limited seats per batch.</p>
-          <Link to='/register'><button className="btn-primary btn-large">Get Started →</button></Link>
+          <button className="btn-primary btn-large">Apply for Free →</button>
         </div>
       </section>
 

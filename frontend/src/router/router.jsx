@@ -6,6 +6,8 @@ import Programs from '../pages/ProgramsPage/Programs';
 import Review from '../pages/ReviewPage/Review';
 import SignIn from '../pages/SignInPage/SignIn';
 import Register from '../pages/RegisterPage/Register';
+import TermConditions from '../pages/PrivacyPoliciesAndTerms&ConditionsPage/TermsConditionsPage';
+import PrivacyPolicies from '../pages/PrivacyPoliciesAndTerms&ConditionsPage/PrivacyPoliciesPage';
 
 const router = createBrowserRouter([
   {
@@ -31,7 +33,15 @@ const router = createBrowserRouter([
       {
         path: 'reviews',
         element: <Review />
-      }
+      },
+      {
+        path: 'privacy',
+        element: <PrivacyPolicies /> 
+      },
+      {
+        path: 'terms',
+        element: <TermConditions />
+      },
     ]
   },
   // Auth routes without navbar

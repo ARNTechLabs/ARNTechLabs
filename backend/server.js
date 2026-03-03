@@ -288,3 +288,138 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+// Add this after your existing routes
+
+// ============================================
+// SUBMIT FEEDBACK
+// ============================================
+app.post('/api/feedback/submit', async (req, res) => {
+  try {
+    const { name, email, course, rating, feedback, wouldRecommend } = req.body;
+
+    // Validation
+    if (!name || !email || !course || !rating || !feedback) {
+      return res.status(400).json({ message: 'All required fields must be filled' });
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ message: 'Invalid email format' });
+    }
+
+    // Rating validation
+    if (rating < 1 || rating > 5) {
+      return res.status(400).json({ message: 'Rating must be between 1 and 5' });
+    }
+
+    // Insert feedback
+    const [result] = await db.query(
+      'INSERT INTO feedback (name, email, course, rating, feedback, would_recommend) VALUES (?, ?, ?, ?, ?, ?)',
+      [name, email, course, rating, feedback, wouldRecommend]
+    );
+
+    res.status(201).json({
+      message: 'Feedback submitted successfully',
+      feedbackId: result.insertId
+    });
+  } catch (error) {
+    console.error('Feedback submission error:', error);
+    res.status(500).json({ message: 'Failed to submit feedback. Please try again.' });
+  }
+});
+
+// ============================================
+// GET ALL FEEDBACK (ADMIN)
+// ============================================
+app.get('/api/feedback/all', authMiddleware, async (req, res) => {
+  try {
+    const [feedback] = await db.query(
+      'SELECT id, name, email, course, rating, feedback, would_recommend, created_at FROM feedback ORDER BY created_at DESC'
+    );
+
+    res.json({
+      feedback,
+      count: feedback.length
+    });
+  } catch (error) {
+    console.error('Error fetching feedback:', error);
+    res.status(500).json({ message: 'Failed to fetch feedback' });
+  }
+});
+
+// ============================================
+// GET FEEDBACK BY COURSE
+// ============================================
+app.get('/api/feedback/course/:course', async (req, res) => {
+  try {
+    const { course } = req.params;
+
+    const [feedback] = await db.query(
+      'SELECT id, name, course, rating, feedback, would_recommend, created_at FROM feedback WHERE course = ? ORDER BY created_at DESC',
+      [course]
+    );
+
+    res.json({
+      course,
+      feedback,
+      count: feedback.length,
+      averageRating: feedback.length > 0 
+        ? (feedback.reduce((sum, f) => sum + f.rating, 0) / feedback.length).toFixed(1)
+        : 0
+    });
+  } catch (error) {
+    console.error('Error fetching course feedback:', error);
+    res.status(500).json({ message: 'Failed to fetch course feedback' });
+  }
+});
+
+// ============================================
+// GET FEEDBACK STATISTICS
+// ============================================
+app.get('/api/feedback/stats', async (req, res) => {
+  try {
+    const [stats] = await db.query(`
+      SELECT 
+        COUNT(*) as total_feedback,
+        AVG(rating) as average_rating,
+        SUM(CASE WHEN would_recommend = 1 THEN 1 ELSE 0 END) as would_recommend_count,
+        COUNT(DISTINCT course) as courses_with_feedback
+      FROM feedback
+    `);
+
+    const [ratingDistribution] = await db.query(`
+      SELECT 
+        rating,
+        COUNT(*) as count
+      FROM feedback
+      GROUP BY rating
+      ORDER BY rating DESC
+    `);
+
+    res.json({
+      statistics: stats[0],
+      ratingDistribution
+    });
+  } catch (error) {
+    console.error('Error fetching feedback stats:', error);
+    res.status(500).json({ message: 'Failed to fetch feedback statistics' });
+  }
+});
+
+// ============================================
+// DELETE FEEDBACK (ADMIN)
+// ============================================
+app.delete('/api/feedback/:id', authMiddleware, async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    await db.query('DELETE FROM feedback WHERE id = ?', [id]);
+
+    res.json({ message: 'Feedback deleted successfully' });
+  } catch (error) {
+    console.error('Feedback deletion error:', error);
+    res.status(500).json({ message: 'Failed to delete feedback' });
+  }
+});

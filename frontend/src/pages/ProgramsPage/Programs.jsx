@@ -45,6 +45,44 @@ const Programs = () => {
       <section className="programs-features-section">
         <div className="programs-container">
           <h2 className="features-title">What's included in every program</h2>
+          <div className="features-grid">
+            <div className="feature-card">
+              <div className="feature-icon">
+              </div>
+              <h3 className="feature-name">Real-World Projects</h3>
+              <p className="feature-desc">Work on actual client projects and build a portfolio that impresses employers.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">
+              </div>
+              <h3 className="feature-name">Expert Mentorship</h3>
+              <p className="feature-desc">Get 1-on-1 guidance from industry professionals with 10+ years of experience.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">
+              </div>
+              <h3 className="feature-name">Certification</h3>
+              <p className="feature-desc">Earn an industry-recognized certificate upon successful completion.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">
+              </div>
+              <h3 className="feature-name">Placement Support</h3>
+              <p className="feature-desc">Access our network of 200+ hiring partners and get interview preparation.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">
+              </div>
+              <h3 className="feature-name">Lifetime Access</h3>
+              <p className="feature-desc">Keep access to all course materials and updates even after completion.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">
+              </div>
+              <h3 className="feature-name">Community Support</h3>
+              <p className="feature-desc">Join a thriving community of learners and alumni for networking and growth.</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -52,6 +90,7 @@ const Programs = () => {
       <section className="programs-cta-section">
         <div className="programs-cta-inner">
           <h2 className="programs-cta-title">Ready to start learning?</h2>
+          <p className="programs-cta-subtitle">Join 5,000+ students who transformed their careers with CodSoft.</p>
           <Link to='/register'><button className="programs-btn-primary">Get Started Today →</button></Link>
         </div>
       </section>
