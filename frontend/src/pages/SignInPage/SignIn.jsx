@@ -6,12 +6,12 @@ import './SignIn.css';
 const SignIn = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
-  
+
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
-  
+
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [apiError, setApiError] = useState('');
@@ -31,23 +31,23 @@ const SignIn = () => {
 
   const validate = () => {
     const newErrors = {};
-    
+
     if (!formData.email) {
       newErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Email is invalid';
     }
-    
+
     if (!formData.password) {
       newErrors.password = 'Password is required';
     }
-    
+
     return newErrors;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const newErrors = validate();
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -58,7 +58,9 @@ const SignIn = () => {
     setApiError('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/signin', {
+      const API = import.meta.env.VITE_API_URL || "https://arntechlabs.onrender.com";
+
+      const response = await fetch(`${API}/api/auth/signin`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
