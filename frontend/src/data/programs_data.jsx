@@ -1,6 +1,6 @@
 import AIML from '../assets/course_logos/aiml.png'
 import DS from '../assets/course_logos/ds.png'
-import FullStack from '../assets/course_logos/full_Stack.png'
+import FullStack from '../assets/course_logos/full_stack.png'
 import LLM from '../assets/course_logos/llm.png'
 import NeuralNetwork from '../assets/course_logos/neural_network.png'
 import Research from '../assets/course_logos/research.png'
