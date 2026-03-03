@@ -30,34 +30,31 @@ const About = () => {
               <div className="bento-content">
                 <h2 className="bento-title">Our Story</h2>
                 <p className="bento-text">
-                  Founded in 2020, ED-tech began with a simple vision: to make quality tech education
-                  accessible to everyone. We noticed a significant gap between what students learn in
-                  traditional education and what the industry actually needs.
+                  Founded in 2025, ARNTECHLABS (Advanced Research & Next-Gen Technology Laboratories) was built with a bold mission to disrupt traditional tech education and build a practical, innovation driven learning ecosystem.
                 </p>
                 <p className="bento-text">
-                  Our founders, experienced tech professionals who faced similar challenges early in
-                  their careers, decided to create a platform that focuses on practical skills, real
-                  projects, and direct industry connections.
+                  We started with a simple observation: most students learn theory, but the industry demands real skills, real projects, and real problem-solving ability. That gap became our opportunity.
                 </p>
                 <p className="bento-text">
-                  Over the years, we have trained thousands of learners through carefully
-                  designed programs that emphasize hands-on experience, mentorship, and
-                  real-world problem solving. Our curriculum evolves continuously to stay
-                  aligned with emerging technologies and industry standards.
+                  Founded by technology enthusiasts and industry experienced professionals, ARNTECHLABS was created as a hands-on platform focused on applied learning, deep technical research, and product-oriented development. From day one, we prioritized building not just teaching.
                 </p>
 
                 <p className="bento-text">
-                  At ED-tech, we believe learning should be immersive and transformative.
-                  That’s why we integrate live sessions, collaborative projects, and career
-                  guidance into every program, ensuring our students graduate with both
-                  confidence and competence.
+                  Our approach combines live training, real world projects, mentorship from practitioners, startup-style execution, and exposure to emerging technologies like AI, cloud computing, cybersecurity, and advanced software development. Every program is designed to simulate real industry environments and startup workflows.
                 </p>
 
                 <p className="bento-text">
-                  Today, we are building more than just a learning platform — we are
-                  cultivating a global community of innovators, creators, and leaders who
-                  are ready to shape the future of technology.
+                  As we grow, we are building more than a training company we are creating a talent pipeline, innovation hub, and research-driven community that empowers students to transform ideas into impactful technology.
                 </p>
+
+                <p className='bento-text'>
+                  ARNTECHLABS is not just learning.
+                </p>
+
+                <p className='bento-text'>
+                  It’s building. It’s innovating. It’s scaling future tech leaders.
+                </p>
+
                 <div className="bento-stats">
                   <div className="stat-item">
                     <span className="stat-number">2026</span>
@@ -97,7 +94,7 @@ const About = () => {
                 <div className="values-grid">
 
                   <div className="value-item">
-                    
+
                     <div className="value-content">
                       <span className="value-text">Excellence</span>
                       <p className="value-desc">
@@ -107,7 +104,7 @@ const About = () => {
                   </div>
 
                   <div className="value-item">
-                    
+
                     <div className="value-content">
                       <span className="value-text">Integrity</span>
                       <p className="value-desc">
@@ -117,7 +114,7 @@ const About = () => {
                   </div>
 
                   <div className="value-item">
-                    
+
                     <div className="value-content">
                       <span className="value-text">Innovation</span>
                       <p className="value-desc">
@@ -127,7 +124,7 @@ const About = () => {
                   </div>
 
                   <div className="value-item">
-                    
+
                     <div className="value-content">
                       <span className="value-text">Impact</span>
                       <p className="value-desc">
@@ -195,11 +192,11 @@ const About = () => {
                 <div className="contact-info">
                   <div className="contact-item">
                     <span className="material-icons-round contact-icon-mat">email</span>
-                    <span>info@edtech.com</span>
+                    <span>arntechlabs.official@gmail.com</span>
                   </div>
                   <div className="contact-item">
                     <span className="material-icons-round contact-icon-mat">phone</span>
-                    <span>+91 1234567890</span>
+                    <span>+91 9019996581</span>
                   </div>
                   <div className="contact-item">
                     <span className="material-icons-round contact-icon-mat">location_on</span>

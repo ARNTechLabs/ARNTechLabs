@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     allowedHosts: [
-      
+      'measurement-arch-gpl-oil.trycloudflare.com'
     ],
   }
 })

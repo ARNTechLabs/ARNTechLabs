@@ -101,7 +101,7 @@
   border: 1px solid rgba(102, 179, 255, 0.4);
   color: var(--sky-blue);
   padding: 8px 18px;
-  border-radius: 50px;
+  border-radius: 0;
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.3px;
@@ -134,57 +134,55 @@
 .hero-cta {
   display: flex;
   gap: 16px;
+  margin-bottom: 60px;
   flex-wrap: wrap;
-  margin-bottom: 56px;
 }
 
-/* ── Buttons ───────────────────────────────────────────────── */
 .btn-primary {
   background: var(--sky-blue);
   color: var(--deep-blue);
   border: none;
-  padding: 15px 36px;
-  border-radius: 50px;
+  padding: 16px 32px;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
   transition: var(--transition);
-  font-family: "DM Sans", sans-serif;
-  letter-spacing: 0.2px;
+  font-family: 'DM Sans', sans-serif;
+  border-radius: 0; /* Changed */
 }
 
 .btn-primary:hover {
-  background: var(--sky-blue-light);
+  background: var(--sky-blue-dark);
   transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(102, 179, 255, 0.45);
+  box-shadow: 0 8px 24px rgba(102, 179, 255, 0.4);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  padding: 16px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: 'DM Sans', sans-serif;
+  border-radius: 0; /* Changed */
 }
 
 .btn-primary:active {
   transform: translateY(-1px);
 }
 
-.btn-ghost {
-  background: transparent;
-  color: var(--white);
-  border: 2px solid rgba(255, 255, 255, 0.35);
-  padding: 13px 36px;
-  border-radius: 50px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: var(--transition);
-  font-family: "DM Sans", sans-serif;
-}
-
 .btn-ghost:hover {
-  border-color: var(--white);
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.7);
 }
 
 .btn-large {
   padding: 18px 48px;
   font-size: 1.1rem;
+  border-radius: 0; /* Changed */
 }
 
 /* ── Hero Stats ────────────────────────────────────────────── */
@@ -615,33 +613,69 @@
    CTA
 ─────────────────────────────────────────────────────────────*/
 .cta-section {
-  background: var(--light-gray);
+  background: linear-gradient(135deg, #0056b3 0%, #014a92 100%);
   padding: 100px 80px;
   text-align: center;
-  border-top: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle, rgba(102, 179, 255, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
 }
 
 .cta-inner {
-  max-width: 680px;
+  max-width: 800px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .cta-title {
-  font-family: "Syne", sans-serif;
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
-  color: var(--text-dark);
+  color: #ffffff; /* Changed to white */
   line-height: 1.1;
-  letter-spacing: -1px;
-  margin-bottom: 18px;
+  letter-spacing: -1.5px;
+  margin-bottom: 24px;
 }
 
 .cta-sub {
-  font-size: 1.1rem;
-  color: var(--text-mid);
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.85); /* Changed to white with opacity */
   margin-bottom: 40px;
   font-weight: 300;
 }
+
+.cta-section .btn-primary {
+  background: #66b3ff;
+  color: #0056b3;
+  border: none;
+  padding: 18px 48px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'DM Sans', sans-serif;
+  border-radius: 0;
+}
+
+.cta-section .btn-primary:hover {
+  background: #a8d4ff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(102, 179, 255, 0.45);
+}
+
 
 /* ────────────────────────────────────────────────────────────
    RESPONSIVE
@@ -829,7 +863,12 @@
 }
 
 .cert-internship{
-  width: 280px;
+  width: 350px;
+  height: 220px;
+}
+.cert-internship1 {
+  margin-left: 45px;
+  width: 350px;
   height: 220px;
 }
 

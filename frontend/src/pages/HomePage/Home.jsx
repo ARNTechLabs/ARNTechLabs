@@ -7,6 +7,7 @@ import { testimonials } from '../../data/testimonialCarousel_data';
 import { technologies } from '../../data/weteach_marquee_data';
 import MSMELogo from '../../assets/MSME_Logo.svg'
 import IntershipCertificate from '../../assets/Internship_Certificate_Template.png'
+import CrashCourseCertificate from '../../assets/Crash_Course_certificate_template.png'
 
 import StepCard from '../../components/RegistrationStepsCard/StepCard';
 import TestimonialCarousel from '../../components/TestimonialCarousel/TestimonialCarousel';
@@ -44,7 +45,7 @@ const Home = () => {
             <Link to='/register'><button className="btn-primary">Start Your Journey</button></Link>
             <Link to='/programs'><button className="btn-ghost">Browse Programs</button></Link>
           </div>
-          <div className="hero-stats">
+          {/* <div className="hero-stats">
             <div className="hero-stat">
               <strong>5,000+</strong>
               <span>Students placed</span>
@@ -59,7 +60,7 @@ const Home = () => {
               <strong>4.9 ★</strong>
               <span>Average rating</span>
             </div>
-          </div>
+          </div> */}
         </div>
         <div className="hero-visual">
           <div className="hero-logo-container">
@@ -139,8 +140,8 @@ const Home = () => {
           <div className="certificates-grid">
             {/* Certificate 1 - Completion */}
             <div className="certificate-card">
-              <div className="cert-icon-wrapper">
-                <span className="material-icons-round cert-main-icon">workspace_premium</span>
+              <div className="cert-logo-wrapper">
+                <img src={CrashCourseCertificate} alt="Internship Certificate" className='cert-internship1'/>
               </div>
               <h3 className="cert-card-title">Certificate of Completion</h3>
               <p className="cert-card-desc">Awarded upon successful completion of training</p>

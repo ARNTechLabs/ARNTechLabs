@@ -353,7 +353,7 @@
   background: #0056b3;
   color: white;
   border: none;
-  border-radius: 12px;
+  border-radius: 0; /* Changed */
   font-size: 1.05rem;
   font-weight: 600;
   cursor: pointer;
@@ -361,6 +361,7 @@
   font-family: 'DM Sans', sans-serif;
   margin-top: auto;
 }
+
 
 .contact-btn:hover {
   background: #003d80;
@@ -421,7 +422,7 @@
   color: #0056b3;
   border: none;
   padding: 18px 48px;
-  border-radius: 50px;
+  border-radius: 0; /* Changed */
   font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;

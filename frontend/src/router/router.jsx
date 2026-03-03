@@ -8,6 +8,7 @@ import SignIn from '../pages/SignInPage/SignIn';
 import Register from '../pages/RegisterPage/Register';
 import TermConditions from '../pages/PrivacyPoliciesAndTerms&ConditionsPage/TermsConditionsPage';
 import PrivacyPolicies from '../pages/PrivacyPoliciesAndTerms&ConditionsPage/PrivacyPoliciesPage';
+import ProgramDetails from '../pages/ProgramDetailsPage/ProgramDetails';
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'program/:programId',
-        // element: <ProgramDetails />
+        element: <ProgramDetails />
       },
       {
         path: 'reviews',

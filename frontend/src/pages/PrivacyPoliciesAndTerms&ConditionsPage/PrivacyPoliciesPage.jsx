@@ -5,7 +5,6 @@ function PrivacyPolicies() {
         <>
             <section class="legal-page">
                 <b><strong><h1>Privacy Policy</h1></strong></b>
-                <p><strong>Effective Date:</strong> 04/03/2026</p>
 
                 <h2>1. Introduction</h2>
                 <p>

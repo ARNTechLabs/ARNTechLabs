@@ -236,11 +236,11 @@
   color: #0056b3;
   border: none;
   padding: 18px 48px;
-  border-radius: 50px;
+  border-radius: 0; /* Changed */
   font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s;
   font-family: 'DM Sans', sans-serif;
   letter-spacing: 0.2px;
 }

@@ -5,7 +5,6 @@ function TermConditions() {
         <>
             <section class="legal-page">
                 <h1>Terms & Conditions</h1>
-                <p><strong>Effective Date:</strong> 04/03/2026</p>
 
                 <h2>1. Acceptance of Terms</h2>
                 <p>

@@ -640,7 +640,7 @@
   background: #0056b3;
   color: white;
   border: none;
-  border-radius: 12px;
+  border-radius: 0; /* Changed */
   font-size: 1.05rem;
   font-weight: 600;
   cursor: pointer;

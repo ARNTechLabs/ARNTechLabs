@@ -141,12 +141,12 @@ const Review = () => {
   const [message, setMessage] = useState({ type: '', text: '' });
 
   const courses = [
+    'Artificial Intelligence & Machine Learning',
+    'deep Learning and neural networks',
+    'Data Science with analysis',
     'Full Stack Development',
-    'Data Science & AI',
-    'UI/UX Design',
-    'Mobile Development',
-    'Cybersecurity',
-    'Cloud & DevOps'
+    'Large language model [LLMs] Training and Deployment',
+    'Research & conference Program'
   ];
 
   const handleChange = (e) => {
@@ -251,7 +251,7 @@ const Review = () => {
                   value={formData.name}
                   onChange={handleChange}
                   className="form-input"
-                  placeholder="John Doe"
+                  placeholder="Name"
                   required
                 />
               </div>
@@ -345,7 +345,7 @@ const Review = () => {
                     onChange={handleChange}
                     className="checkbox-input"
                   />
-                  <span>I would recommend ED-tech to others</span>
+                  <span>I would recommend ARN TechLabs to others</span>
                 </label>
               </div>
 
