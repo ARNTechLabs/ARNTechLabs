@@ -251,7 +251,7 @@ const Review = () => {
                   value={formData.name}
                   onChange={handleChange}
                   className="form-input"
-                  placeholder="Name"
+                  placeholder="XYZ"
                   required
                 />
               </div>
